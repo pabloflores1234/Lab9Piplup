@@ -1,7 +1,10 @@
 <%@page import="java.util.ArrayList" %>
 <%@ page import="pe.edu.pucp.tel131lab9.bean.Post" %>
+<jsp:useBean id="userSession" scope="session" type="pe.edu.pucp.tel131lab9.dto.EmployeeDto"
+             class="pe.edu.pucp.tel131lab9.dto.EmployeeDto"/>
 <jsp:useBean id="posts" type="java.util.ArrayList<pe.edu.pucp.tel131lab9.bean.Post>" scope="request"/>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +21,11 @@
         <div class="col-md-7">
             <h1>Home</h1>
         </div>
+        <% if(userSession.getEmployeeId() > 0){%>
         <div class="col-md-5 col-lg-4 ms-auto my-auto text-md-end">
-            <a href="<%= request.getContextPath()%>/PostServlet?action=new" class="btn btn-primary">New Post</a>
+            <a href="<%= request.getContextPath()%>/PostServlet?action=new&id=<%=userSession.getEmployeeId()%>" class="btn btn-primary">New Post</a>
         </div>
+        <%}%>
     </div>
     <div class="row">
         <%for (Post p : posts) {%>

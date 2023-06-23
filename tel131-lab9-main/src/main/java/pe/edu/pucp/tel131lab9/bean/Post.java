@@ -10,6 +10,35 @@ public class Post {
     private Employee employee;
     private Timestamp datetime;
 
+    private String nombrecompleto;
+    private int numerocomentarios;
+
+    private Timestamp datetime;
+
+    public int getNumerocomentarios() {
+        return numerocomentarios;
+    }
+
+    public void setNumerocomentarios(int numerocomentarios) {
+        this.numerocomentarios = numerocomentarios;
+    }
+
+    public String getNombrecompleto() {
+        return nombrecompleto;
+    }
+
+    public void setNombrecompleto(String nombrecompleto) {
+        this.nombrecompleto = nombrecompleto;
+    }
+
+    public Timestamp getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(Timestamp datetime) {
+        this.datetime = datetime;
+    }
+
     public Employee getEmployee() {
         return employee;
     }

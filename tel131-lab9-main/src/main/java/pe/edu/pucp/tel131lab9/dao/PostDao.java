@@ -14,7 +14,9 @@ public class PostDao extends DaoBase{
 
         ArrayList<Post> posts = new ArrayList<>();
 
-        String sql = "SELECT * FROM post left join employees e on e.employee_id = post.employee_id";
+        String sql = "SELECT p.post_id,title,concat(first_name,' ',last_name) as empleado ,p.datetime,content,count(comment_id) as comentarios FROM post p left join employees e on e.employee_id = p.employee_id\n" +
+                "left join comments c on c.post_id=p.post_id\n" +
+                "group by p.post_id;";
 
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
@@ -22,7 +24,21 @@ public class PostDao extends DaoBase{
 
             while (rs.next()) {
                 Post post = new Post();
-                fetchPostData(post, rs);
+                //fetchPostData(post, rs);
+                post.setPostId(rs.getInt(1));
+                post.setTitle(rs.getString(2));
+                post.setNombrecompleto(rs.getString("empleado"));
+                post.setDatetime(rs.getTimestamp(4));
+                post.setContent(rs.getString(5));
+                post.setNumerocomentarios(rs.getInt("comentarios"));
+
+                /*Employee employee= new Employee();
+                employee.setEmployeeId(rs.getInt(2));
+                employee.setFirstName(rs.getString(3));
+                employee.setLastName(rs.getString(4));
+                post.setEmployee(employee);
+                post.setDatetime(rs.getTimestamp(5));*/
+
                 posts.add(post);
             }
         } catch (SQLException ex) {

@@ -94,9 +94,7 @@ public class PostDao extends DaoBase{
     }
 
     public void guardarPost(Post post) {
-
-
-
+        
         String sql = "INSERT INTO post(title,content,employee_id,datetime) VALUES (?,?,?,now());";
 
         try (Connection conn = this.getConnection();

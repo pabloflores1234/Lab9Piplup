@@ -1,11 +1,42 @@
 package pe.edu.pucp.tel131lab9.bean;
 
+import java.sql.Timestamp;
+
 public class Post {
     private int postId;
     private String title;
     private String content;
     private int employeeId;
     private Employee employee;
+
+    private String nombrecompleto;
+    private int numerocomentarios;
+
+    private Timestamp datetime;
+
+    public int getNumerocomentarios() {
+        return numerocomentarios;
+    }
+
+    public void setNumerocomentarios(int numerocomentarios) {
+        this.numerocomentarios = numerocomentarios;
+    }
+
+    public String getNombrecompleto() {
+        return nombrecompleto;
+    }
+
+    public void setNombrecompleto(String nombrecompleto) {
+        this.nombrecompleto = nombrecompleto;
+    }
+
+    public Timestamp getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(Timestamp datetime) {
+        this.datetime = datetime;
+    }
 
     public Employee getEmployee() {
         return employee;

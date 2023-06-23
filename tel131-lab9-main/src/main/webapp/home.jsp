@@ -27,9 +27,12 @@
         <div class="col-sm-4 py-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title"><%= p.getTitle()%></h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><%= p.getEmployee().getFirstName() + p.getEmployee().getLastName()%></h6>
-                    <p class="card-text"><%= p.getContent()%></p>
+                    <h2 class="card-title"><%= p.getTitle()%></h2>
+                    <h5 class="card-title"><%= p.getNombrecompleto()%></h5>
+                    <h6 class="card-title"><%= p.getDatetime()%></h6>
+                    <h7 class="card-title"><%= p.getContent()%></h7>
+                    <br>
+                    <h7 class="card-title"><%= p.getNumerocomentarios()%> Comments</h7>
                     <a href="<%= request.getContextPath()%>/PostServlet?action=view&id=<%=p.getPostId()%>" class="btn btn-primary">View</a>
                 </div>
             </div>
